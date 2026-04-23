@@ -39,25 +39,15 @@ Shows how the same verse was altered across Septuagint → Vulgate → Slavonic 
 ```
 
 HaLevHaLashon/
-├── data/
-│   ├── tanakh/wlc/              # Westminster Leningrad Codex
-│   ├── tanakh/dss/              # Dead Sea Scrolls
-│   ├── corruptions/             # Known Greek/Latin insertions
-│   └── etymology/               # Semitic root database
-├── models/
-│   ├── restoration_model/       # Primary AI
-│   ├── corruption_detector/     # Foreign layer detection
-│   └── etymology_model/         # Root mapping
-├── src/
-│   ├── cli/restore.py           # Restore single verse
-│   ├── core/textual_criticism.py
-│   └── api/server.py
-├── output/
-│   ├── restored_tanakh/         # Complete restored Hebrew text
-│   └── corruption_reports/      # Per-verse analysis
-└── notebooks/
-└── examples/                # Step-by-step restorations
-
+├── src/core/
+│   ├── sources.py          # Подключение к Sefaria, BDB, морфологии
+│   └── restorer.py         # Логика обнаружения искажений
+├── scripts/
+│   └── download_sources.py # Однократная загрузка
+├── data/cache/             # Автоматически создаётся
+│   ├── tanakh.json         # Кэш Sefaria (скачается автоматически)
+│   └── bdb.json            # Кэш BDB (скачается автоматически)
+└── requirements.txt        # ОБНОВЛЁН
 ```
 
 ---
